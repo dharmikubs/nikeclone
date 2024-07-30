@@ -45,7 +45,7 @@ const ProductList = () => {
             <span className="font-medium">Air Jordan 1 Low</span>
             <span className="font-semibold">$49</span>
           </div>
-          <div className="text-sm text-gray-500">Men's Shoes</div>
+          <div className="text-sm text-gray-500">Mens Shoes</div>
           <button className="rounded-md font-bold py-3 px-4 hover:text-black hover:ring-1 hover:bg-white hover:ring-black text-[14px] bg-black text-white transition-all duration-300 ease-in-out hover:transition-all hover:duration-300 hover:ease-in-out">
             Add To Cart
           </button>
@@ -67,7 +67,7 @@ const ProductList = () => {
             <span className="font-medium">Nike Dunk Low Retro</span>
             <span className="font-semibold">$49</span>
           </div>
-          <div className="text-sm text-gray-500">Men's Shoes</div>
+          <div className="text-sm text-gray-500">Mens Shoes</div>
           <button className="rounded-md font-bold py-3 px-4 hover:text-black hover:ring-1 hover:bg-white hover:ring-black text-[14px] bg-black text-white transition-all duration-300 ease-in-out hover:transition-all hover:duration-300 hover:ease-in-out">
             Add To Cart
           </button>
