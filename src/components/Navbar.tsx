@@ -10,7 +10,7 @@ const Navbar = () => {
     <>
       <div className="h-20 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
         {/* mobile view  */}
-        <div className="h-full flex items-center justify-between md:hidden">
+        <div className="h-full flex items-center justify-between xl:hidden">
           <Link href="/">
             <Image src="/logo.png" alt="logo" width={64} height={64} />
           </Link>
@@ -27,7 +27,6 @@ const Navbar = () => {
             <div className="hidden xl:flex gap-4">
               <Link href="/">Home</Link>
               <Link href="/">Shop</Link>
-              <Link href="/">Deals</Link>
               <Link href="/">About</Link>
               <Link href="/">Contact</Link>
             </div>

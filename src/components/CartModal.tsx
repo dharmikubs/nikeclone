@@ -35,7 +35,7 @@ const CartModal = () => {
                   </div>
                   {/* bottom  */}
                   <div className="flex justify-between">
-                    <span className="text-gray-500">Qty 2</span>
+                    <span className="text-gray-500">Qty 1</span>
                     <span className="text-blue-500">Remove</span>
                   </div>
                 </div>

@@ -21,7 +21,7 @@ const NavbarIcon = () => {
 
   return (
     <>
-      <div className="flex item-center gap-4 xl:gap-6 relative">
+      <div className="xl:flex hidden item-center gap-4 xl:gap-6 relative">
         <Image
           src="/profile.png"
           alt=""
@@ -53,7 +53,7 @@ const NavbarIcon = () => {
             onClick={() => setIsCartOpen((prev) => !prev)}
           />
           <div className="absolute -top-4 -right-4 w-6 h-6 bg-black text-white rounded-full text-sm flex items-center justify-center">
-            2
+            1
           </div>
           {isCartOpen && <CartModal />}
         </div>
