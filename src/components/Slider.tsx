@@ -125,7 +125,7 @@ const HeroBanner = () => {
               layout="responsive"
               width={1920}
               height={1080}
-              className="object-cover"
+              className="object-cover slider_img"
             />
             <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] left-0 text-black/[0.9] text-sm md:text-lg uppercase font-medium cursor-pointer hover:opacity-90">
               Shop now

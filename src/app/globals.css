@@ -8,3 +8,8 @@
 ::-webkit-scrollbar {
   scrollbar-width: none;
 }
+@media (max-width: 640px) {
+  .slider_img {
+    height: 400px !important;
+  }
+}
