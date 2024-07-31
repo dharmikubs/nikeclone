@@ -11,7 +11,7 @@ const ListPage = () => {
           {/* text  */}
           <div className="w-2/3 text-white flex flex-col items-start justify-center p-8">
             <h2 className="font-semibold xl:text-4xl text-lg sm:text-xl md:text-2xl leading-[48px]">
-              Don't Just Wear It,
+              {"Don't"} Just Wear It,
             </h2>
             <span className="font-semibold xl:text-4xl text-lg sm:text-xl md:text-2xl leading-[48px] mb-4">
               Just Do It.
