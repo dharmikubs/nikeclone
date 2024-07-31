@@ -30,6 +30,7 @@ const ProductList = async ({
           <Link
             href={"/" + product.slug}
             className="mt-12 relative w-full flex flex-col gap-4 sm:w-[45%] lg:w-[25%]"
+            key={product._id}
           >
             <div className="relative w-full h-80 group">
               <Image
