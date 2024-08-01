@@ -1,9 +1,20 @@
+"use client";
+import { products } from "@wix/stores";
 import React from "react";
 
-const CustomizeProducts = () => {
+const CustomizeProducts = ({
+  productId,
+  variants,
+  productOptions,
+}: {
+  productId: string;
+  variants: products.Variant[];
+  productOptions?: products.ProductOption[];
+}) => {
   return (
     <>
       <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4"></div>
         <h2>Choose a size</h2>
         <div className="flex items-center gap-3">
           <ul className="flex items-center gap-3 flex-wrap">

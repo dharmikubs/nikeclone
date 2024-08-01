@@ -79,11 +79,12 @@
 // export default Slider;
 // pages/components/HeroBanner.jsx
 
-import React from "react";
+import React, { Suspense } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { BiArrowBack } from "react-icons/bi";
 import Image from "next/image";
+import Link from "next/link";
 
 const images = [
   { id: 1, src: "/slide-2.png", alt: "Slide 1" },
@@ -127,9 +128,12 @@ const HeroBanner = () => {
               height={1080}
               className="object-cover slider_img"
             />
-            <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] left-0 text-black/[0.9] text-sm md:text-lg uppercase font-medium cursor-pointer hover:opacity-90">
-              Shop now
-            </div>
+
+            <Link href="/list">
+              <div className="px-[15px] md:px-[40px] py-[10px] md:py-[25px] font-oswald bg-white absolute bottom-[25px] md:bottom-[75px] left-0 text-black/[0.9] text-sm md:text-lg uppercase font-medium cursor-pointer hover:opacity-90">
+                <Suspense fallback={"Loading"}>View More</Suspense>
+              </div>
+            </Link>
           </div>
         ))}
       </Carousel>

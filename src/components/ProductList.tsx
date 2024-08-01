@@ -3,15 +3,18 @@ import { products } from "@wix/stores";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import DOMPurify from "isomorphic-dompurify";
 
 const PRODUCT_PER_PAGE = 20;
 
 const ProductList = async ({
   categoryId,
   limit,
+  searchParams,
 }: {
   categoryId: string;
   limit?: number;
+  searchParams?: any;
 }) => {
   const wixClient = await wixClientServer();
 
@@ -22,9 +25,13 @@ const ProductList = async ({
     .find();
 
   return (
-    <>
-      <div className="flex gap-x-8 gap-y-16 justify-between flex-wrap">
-        {res.items.map((product: products.Product) => (
+    <div className="flex gap-x-8 gap-y-16 flex-wrap">
+      {res.items.map((product: products.Product) => {
+        const sanitizedDescription = DOMPurify.sanitize(
+          product.description || ""
+        );
+
+        return (
           <Link
             href={"/" + product.slug}
             className="mt-12 relative w-full flex flex-col gap-4 sm:w-[45%] lg:w-[25%]"
@@ -40,18 +47,37 @@ const ProductList = async ({
               />
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-md"></div>
             </div>
-            <div className="flex justify-between">
-              <span className="font-medium">{product.name}</span>
+            <div className="flex justify-between w-full">
+              <span className="font-medium w-2/3 truncate">{product.name}</span>
               <span className="font-semibold">₹ {product.price?.price}</span>
             </div>
-            <div className="text-sm text-gray-500">Road Racing Shoes</div>
+            <div>
+              <span
+                className="font-medium text-gray-500"
+                dangerouslySetInnerHTML={{
+                  __html: sanitizedDescription,
+                }}
+              ></span>
+            </div>
+            {/* {product.additionalInfoSections && (
+              <div
+                className="text-sm text-gray-500"
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(
+                    product.additionalInfoSections.find(
+                      (section: any) => section.title === "shortDesc"
+                    )?.description || ""
+                  ),
+                }}
+              ></div>
+            )} */}
             <button className="rounded-md font-bold py-3 px-4 hover:text-black hover:ring-1 hover:bg-white hover:ring-black text-[14px] bg-black text-white transition-all duration-300 ease-in-out hover:transition-all hover:duration-300 hover:ease-in-out">
               Add To Cart
             </button>
           </Link>
-        ))}
-      </div>
-    </>
+        );
+      })}
+    </div>
   );
 };
 

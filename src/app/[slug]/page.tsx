@@ -3,6 +3,7 @@ import CustomizeProducts from "@/components/CustomizeProducts";
 import ProductImages from "@/components/ProductImages";
 import { wixClientServer } from "@/lib/wixClientServer";
 import { notFound } from "next/navigation";
+import DOMPurify from "isomorphic-dompurify";
 
 const SinglePage = async ({ params }: { params: { slug: string } }) => {
   const wixClient = await wixClientServer();
@@ -17,6 +18,10 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
   }
 
   const product = products.items[0];
+
+  console.log(product);
+
+  const sanitizedDescription = DOMPurify.sanitize(product.description || "");
   return (
     <div>
       <div className="mt-12 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
@@ -27,12 +32,15 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
         {/* text  */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6">
           <h1 className="text-4xl font-medium capitalize">{product.name}</h1>
-          <span className="text-gray-500 text-sm">{product.description}</span>
+          <span
+            className="text-gray-500"
+            dangerouslySetInnerHTML={{
+              __html: sanitizedDescription,
+            }}
+          ></span>
           <div className="h-[1px] bg-gray-100" />
           {product.price?.price === product.price?.discountedPrice ? (
-            <h3 className="text-xl font-medium text-gray-500 line-through">
-              ₹ {product.price?.price}
-            </h3>
+            <h3 className="font-bold text-2xl">₹ {product.price?.price}</h3>
           ) : (
             <div className="flex items-center gap-4">
               <h3 className="text-xl font-medium text-gray-500 line-through">
@@ -45,15 +53,31 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
           )}
 
           <div className="h-[1px] bg-gray-100" />
-          <CustomizeProducts />
+          {/* <CustomizeProducts /> */}
+          {product.variants && (
+            <CustomizeProducts
+              productId={product._id!}
+              variants={product.variants}
+              productOptions={product.productOptions}
+            />
+          )}
           <Add />
           <div className="h-[1px] bg-gray-100" />
-          {product.additionalInfoSections?.map((section: any) => (
-            <div className="text-sm" key={section.title}>
-              <h4 className="font-medium mb-4">{section.title}</h4>
-              <span>{section.description}</span>
-            </div>
-          ))}
+          {product.additionalInfoSections?.map((section: any) => {
+            const sanitizedSectionDescription = DOMPurify.sanitize(
+              section.description || ""
+            );
+            return (
+              <div className="text-sm" key={section.title}>
+                <h4 className="font-medium mb-4">{section.title}</h4>
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: sanitizedSectionDescription,
+                  }}
+                ></span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
