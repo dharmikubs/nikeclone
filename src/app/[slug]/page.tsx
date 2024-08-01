@@ -18,7 +18,7 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
 
   const product = products.items[0];
   return (
-    <>
+    <div>
       <div className="mt-12 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
         {/* img  */}
         <div className="w-full lg:w-1/2 lg:sticky top-20 h-max">
@@ -56,7 +56,7 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

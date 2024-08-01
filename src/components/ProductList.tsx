@@ -13,10 +13,7 @@ const ProductList = async ({
   categoryId: string;
   limit?: number;
 }) => {
-  // console.log(categoryId);
-
   const wixClient = await wixClientServer();
-  console.log(categoryId);
 
   const res = await wixClient.products
     .queryProducts()
