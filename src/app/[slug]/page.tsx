@@ -1,67 +1,59 @@
 import Add from "@/components/Add";
 import CustomizeProducts from "@/components/CustomizeProducts";
 import ProductImages from "@/components/ProductImages";
-import ProductList from "@/components/ProductList";
-import Image from "next/image";
-import React from "react";
+import { wixClientServer } from "@/lib/wixClientServer";
+import { notFound } from "next/navigation";
 
-const SinglePage = () => {
+const SinglePage = async ({ params }: { params: { slug: string } }) => {
+  const wixClient = await wixClientServer();
+
+  const products = await wixClient.products
+    .queryProducts()
+    .eq("slug", params.slug)
+    .find();
+
+  if (!products.items[0]) {
+    return notFound();
+  }
+
+  const product = products.items[0];
   return (
     <>
       <div className="mt-12 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
         {/* img  */}
         <div className="w-full lg:w-1/2 lg:sticky top-20 h-max">
-          <ProductImages />
+          <ProductImages items={product.media?.items} />
         </div>
         {/* text  */}
         <div className="w-full lg:w-1/2 flex flex-col gap-6">
-          <h1 className="text-4xl font-medium capitalize">
-            Nike Vaporfly 3 Electric
-          </h1>
-          <span className="text-gray-500 text-sm">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta
-            reprehenderit porro corporis consequuntur quos libero est voluptate
-            vel, natus sunt voluptates, aut tempore molestiae culpa labore
-            tenetur eos dolor explicabo.
-          </span>
+          <h1 className="text-4xl font-medium capitalize">{product.name}</h1>
+          <span className="text-gray-500 text-sm">{product.description}</span>
           <div className="h-[1px] bg-gray-100" />
-          <div className="flex items-center gap-4">
+          {product.price?.price === product.price?.discountedPrice ? (
             <h3 className="text-xl font-medium text-gray-500 line-through">
-              $59
+              ₹ {product.price?.price}
             </h3>
-            <h2 className="font-bold text-2xl">$49</h2>
-          </div>
+          ) : (
+            <div className="flex items-center gap-4">
+              <h3 className="text-xl font-medium text-gray-500 line-through">
+                ₹ {product.price?.price}
+              </h3>
+              <h2 className="font-bold text-2xl">
+                ₹ {product.price?.discountedPrice}
+              </h2>
+            </div>
+          )}
+
           <div className="h-[1px] bg-gray-100" />
           <CustomizeProducts />
           <Add />
           <div className="h-[1px] bg-gray-100" />
-          <div className="text-sm">
-            <h4 className="font-medium mb-4">Title</h4>
-            <span>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-              blanditiis tempore nulla? Modi aliquid, commodi mollitia sit
-              reiciendis obcaecati optio dolores, voluptas aspernatur,
-              perferendis repellat. Quisquam ipsa officia libero ea?
-            </span>
-          </div>
-          <div className="text-sm">
-            <h4 className="font-medium mb-4">Title</h4>
-            <span>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-              blanditiis tempore nulla? Modi aliquid, commodi mollitia sit
-              reiciendis obcaecati optio dolores, voluptas aspernatur,
-              perferendis repellat. Quisquam ipsa officia libero ea?
-            </span>
-          </div>
-          <div className="text-sm">
-            <h4 className="font-medium mb-4">Title</h4>
-            <span>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-              blanditiis tempore nulla? Modi aliquid, commodi mollitia sit
-              reiciendis obcaecati optio dolores, voluptas aspernatur,
-              perferendis repellat. Quisquam ipsa officia libero ea?
-            </span>
-          </div>
+          {product.additionalInfoSections?.map((section: any) => (
+            <div className="text-sm" key={section.title}>
+              <h4 className="font-medium mb-4">{section.title}</h4>
+              <span>{section.description}</span>
+            </div>
+          ))}
         </div>
       </div>
     </>

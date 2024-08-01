@@ -33,7 +33,10 @@ const ListPage = () => {
         <Filter />
         {/* products  */}
         <h3 className="font-semibold text-xl mt-12">Shoes For You !</h3>
-        <ProductList />
+        <ProductList
+          categoryId={process.env.FEATURED_PRODUCT_CATEGORY_ID!}
+          limit={3}
+        />
       </div>
     </>
   );
