@@ -2,8 +2,9 @@ import { wixClientServer } from "@/lib/wixClientServer";
 import { products } from "@wix/stores";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 import DOMPurify from "isomorphic-dompurify";
+import Loader from "@/utils/Loader";
 
 const PRODUCT_PER_PAGE = 20;
 
@@ -38,13 +39,16 @@ const ProductList = async ({
             key={product._id}
           >
             <div className="relative w-full h-80 group">
-              <Image
-                src={product.media?.mainMedia?.image?.url || "/product.png"}
-                alt=""
-                fill
-                sizes="25vw"
-                className="absolute object-cover rounded-md"
-              />
+              <Suspense fallback={<Loader />}>
+                <Image
+                  src={product.media?.mainMedia?.image?.url || "/product.png"}
+                  alt=""
+                  fill
+                  sizes="25vw"
+                  className="absolute object-cover rounded-md"
+                />
+              </Suspense>
+
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-md"></div>
             </div>
             <div className="flex justify-between w-full">
