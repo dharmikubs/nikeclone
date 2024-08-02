@@ -25,9 +25,6 @@ const ListPage = async ({ searchParams }: { searchParams: any }) => {
             <span className="font-semibold xl:text-4xl text-lg sm:text-xl md:text-2xl leading-[48px] mb-4">
               Just Do It.
             </span>
-            <button className="rounded-full bg-white text-black w-max py-3 px-5 md:text-sm">
-              Shop Now
-            </button>
           </div>
           {/* image  */}
           <div className="relative w-1/3">
