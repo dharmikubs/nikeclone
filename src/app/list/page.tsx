@@ -1,6 +1,7 @@
 import Filter from "@/components/Filter";
 import ProductList from "@/components/ProductList";
 import { wixClientServer } from "@/lib/wixClientServer";
+import Loader from "@/utils/Loader";
 import Image from "next/image";
 import React, { Suspense } from "react";
 
@@ -41,7 +42,7 @@ const ListPage = async ({ searchParams }: { searchParams: any }) => {
         <Filter />
         {/* products  */}
         <h3 className="font-semibold text-xl mt-12">Shoes For You !</h3>
-        <Suspense fallback={"loading"}>
+        <Suspense fallback={<Loader />}>
           <ProductList
             categoryId={cat.collection?._id || default_cat_id}
             searchParams={searchParams}

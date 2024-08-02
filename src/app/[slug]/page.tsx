@@ -19,8 +19,6 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
 
   const product = products.items[0];
 
-  console.log(product);
-
   const sanitizedDescription = DOMPurify.sanitize(product.description || "");
   return (
     <div>
@@ -51,7 +49,7 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
               </h2>
             </div>
           )}
-
+          <div className="text-sm text-gray-500">{`( Includes All Taxes )`}</div>
           <div className="h-[1px] bg-gray-100" />
           {/* <CustomizeProducts /> */}
           {product.variants && (
