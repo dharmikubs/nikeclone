@@ -41,12 +41,12 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
             <h3 className="font-bold text-2xl">₹ {product.price?.price}</h3>
           ) : (
             <div className="flex items-center gap-4">
-              <h3 className="text-xl font-medium text-gray-500 line-through">
-                ₹ {product.price?.price}
-              </h3>
               <h2 className="font-bold text-2xl">
                 ₹ {product.price?.discountedPrice}
               </h2>
+              <h3 className="text-xl font-medium text-gray-500 line-through">
+                ₹ {product.price?.price}
+              </h3>
             </div>
           )}
           <div className="text-sm text-gray-500">{`( Includes All Taxes )`}</div>
