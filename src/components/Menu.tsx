@@ -39,7 +39,7 @@ const Menu = () => {
         {open && (
           <div className="absolute overflow-y-auto bg-black/[0.9] z-30 text-white left-0 top-20 w-full p-4 h-[calc(100vh-80px)] flex flex-col items-center justify-center gap-8 text-xl">
             <Link href="/">Home</Link>
-            <Link href="/">Shop</Link>
+            <Link href="/shop">Shop</Link>
             <Link href="/">About</Link>
             <Link href="/">Contact</Link>
             <Link href="/">Logout</Link>
