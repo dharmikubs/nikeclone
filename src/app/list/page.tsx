@@ -9,10 +9,15 @@ const default_cat = "all-products";
 const default_cat_id = "00000000-000000-000000-000000000001";
 
 const ListPage = async ({ searchParams }: { searchParams: any }) => {
-  const wixClient = await wixClientServer();
-  const cat = await wixClient.collections.getCollectionBySlug(
-    searchParams.cat || default_cat
-  );
+  let cat;
+  try {
+    const wixClient = await wixClientServer();
+    cat = await wixClient.collections.getCollectionBySlug(
+      searchParams.cat || default_cat
+    );
+  } catch (error) {
+    return <div>oops ! Connection Lost..</div>;
+  }
   return (
     <>
       <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">

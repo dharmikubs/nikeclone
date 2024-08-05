@@ -21,7 +21,7 @@ const Menu = () => {
     return () => {
       document.body.style.overflow = "auto";
       document.body.style.position = "static";
-      document.documentElement.style.overflow = "auto"; // Clean up on unmount
+      document.documentElement.style.overflow = "auto";
     };
   }, [open]);
 

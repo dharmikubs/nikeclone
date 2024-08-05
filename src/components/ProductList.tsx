@@ -17,13 +17,26 @@ const ProductList = async ({
   limit?: number;
   searchParams?: any;
 }) => {
-  const wixClient = await wixClientServer();
+  // let cats;
+  // try {
+  //   const wixClient = await wixClientServer();
 
-  const res = await wixClient.products
-    .queryProducts()
-    .eq("collectionIds", categoryId)
-    .limit(limit || PRODUCT_PER_PAGE)
-    .find();
+  //   cats = await wixClient.collections.queryCollections().find();
+  // } catch (error) {
+  //   return <div>Failed to load categories. Please try again later.</div>;
+  // }
+  let res;
+  try {
+    const wixClient = await wixClientServer();
+
+    res = await wixClient.products
+      .queryProducts()
+      .eq("collectionIds", categoryId)
+      .limit(limit || PRODUCT_PER_PAGE)
+      .find();
+  } catch (error) {
+    return <div>oops ! Connection Lost..</div>;
+  }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
@@ -39,15 +52,15 @@ const ProductList = async ({
             key={product._id}
           >
             <div className="relative w-full h-80 group">
-              <Suspense fallback={<Loader />}>
-                <Image
-                  src={product.media?.mainMedia?.image?.url || "/product.png"}
-                  alt=""
-                  fill
-                  sizes="25vw"
-                  className="absolute object-cover rounded-md"
-                />
-              </Suspense>
+              {/* <Suspense fallback={<Loader />}> */}
+              <Image
+                src={product.media?.mainMedia?.image?.url || "/product.png"}
+                alt=""
+                fill
+                sizes="25vw"
+                className="absolute object-cover rounded-md"
+              />
+              {/* </Suspense> */}
 
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-md"></div>
             </div>

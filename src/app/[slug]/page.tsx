@@ -53,12 +53,14 @@ const SinglePage = async ({ params }: { params: { slug: string } }) => {
           <div className="h-[1px] bg-gray-100" />
           {/* <CustomizeProducts /> */}
           {product.variants && product.productOptions ? (
+            // product customization
             <CustomizeProducts
               productId={product._id!}
               variants={product.variants}
               productOptions={product.productOptions}
             />
           ) : (
+            // quantity button
             <Add
               productId={product._id!}
               variantId="00000000-0000-0000-0000-000000000000"
