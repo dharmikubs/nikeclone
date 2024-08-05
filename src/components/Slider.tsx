@@ -8,7 +8,11 @@ import Image from "next/image";
 import Loader from "@/utils/Loader";
 
 const images = [
-  { id: 1, src: "/slide-2.png", alt: "Slide 1" },
+  {
+    id: 1,
+    src: "https://images.saymedia-content.com/.image/MTc2MjY3NjM4NTk3OTUyNjg1/best-nike-running-shoes-for-flat-feet.webp",
+    alt: "Slide 1",
+  },
   { id: 2, src: "/slide-3.png", alt: "Slide 2" },
   { id: 3, src: "/slide-1.png", alt: "Slide 3" },
 ];
@@ -56,8 +60,8 @@ const HeroBanner = () => {
               alt={image.alt}
               layout="responsive"
               width={1920}
-              height={1080}
-              className="object-cover slider_img"
+              height={768}
+              className="object-cover slider_img bg-center h-[768px] max-h-[768px]"
             />
 
             <div className="absolute xl:bottom-24 bottom-10">
@@ -68,7 +72,7 @@ const HeroBanner = () => {
               ) : (
                 <button
                   onClick={handleButtonClick}
-                  className="bg-white text-black px-6 py-3 text-xl w-[150px] flex justify-center items-center"
+                  className="bg-white text-black md:px-6 md:py-3 p-2 text-xl w-[150px] flex justify-center items-center"
                 >
                   <span className="text-[16px]"> View More</span>
                 </button>
