@@ -100,7 +100,7 @@ const Menu = () => {
           } duration-300 ease-in-out w-full `}
         >
           <button
-            className="absolute top-4 left-4 text-white text-3xl p-2"
+            className="absolute top-4 left-4 text-white text-4xl p-2"
             onClick={() => setOpen(false)}
           >
             &times;
