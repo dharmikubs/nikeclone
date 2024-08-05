@@ -23,7 +23,7 @@ const ClientProductCard = ({ product }: ClientProductCardProps) => {
 
   return (
     <div
-      className="mt-12 relative w-[95%] flex flex-col gap-4"
+      className="mt-12 relative w-[95%] flex flex-col gap-4 cursor-pointer"
       onClick={handleClick}
     >
       <div className="relative w-full h-80 group">
