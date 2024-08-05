@@ -42,7 +42,7 @@ const ClientProductCard = ({ product }: ClientProductCardProps) => {
         <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-md"></div>
       </div>
       <div className="flex justify-between w-full">
-        <span className="font-medium md:w-2/3 w-1/4 truncate">
+        <span className="font-medium md:w-2/3 w-1/2 truncate">
           {product.name}
         </span>
         {product.price?.price === product.price?.discountedPrice ? (

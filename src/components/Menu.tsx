@@ -87,20 +87,20 @@ const Menu = () => {
     <>
       <div className="relative">
         <Image
-          src="/menu.png"
+          src="/menu.svg"
           alt="Menu"
-          width={28}
-          height={28}
+          width={40}
+          height={40}
           className="cursor-pointer"
           onClick={() => setOpen((prev) => !prev)}
         />
         <div
-          className={`fixed top-0 right-0 h-full bg-black/[0.9] z-30 text-white p-4 flex flex-col items-center justify-center gap-8 text-xl transition-transform transform ${
+          className={`fixed top-0 right-0 h-full bg-black/[0.9] z-30 text-white px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 flex flex-col items-center justify-center gap-8 text-xl transition-transform transform ${
             open ? "translate-x-0" : "translate-x-full"
           } duration-300 ease-in-out w-full `}
         >
           <button
-            className="absolute top-4 left-4 text-white text-4xl p-2"
+            className="absolute top-4 right-4 text-white text-3xl px-2"
             onClick={() => setOpen(false)}
           >
             &times;
