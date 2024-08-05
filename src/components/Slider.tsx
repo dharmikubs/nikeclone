@@ -10,16 +10,15 @@ import Loader from "@/utils/Loader";
 const images = [
   {
     id: 1,
-    src: "/shoes2.png",
+    src: "https://images.saymedia-content.com/.image/MTc2MjY3NjM4NTk3OTUyNjg1/best-nike-running-shoes-for-flat-feet.webp",
     alt: "Slide 1",
   },
   {
     id: 2,
-    src: "https://images.saymedia-content.com/.image/MTc2MjY3NjM4NTk3OTUyNjg1/best-nike-running-shoes-for-flat-feet.webp",
-
+    src: "/shoes2.png",
     alt: "Slide 2",
   },
-  // { id: 3, src: "/slide-1.png", alt: "Slide 3" },
+  { id: 3, src: "/slide-1.png", alt: "Slide 3" },
 ];
 
 const HeroBanner = () => {
