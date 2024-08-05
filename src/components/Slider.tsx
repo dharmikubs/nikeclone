@@ -18,7 +18,7 @@ const images = [
     src: "/shoes2.png",
     alt: "Slide 2",
   },
-  { id: 3, src: "/slide-1.png", alt: "Slide 3" },
+  // { id: 3, src: "/slide-1.png", alt: "Slide 3" },
 ];
 
 const HeroBanner = () => {
