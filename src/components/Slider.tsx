@@ -68,9 +68,9 @@ const HeroBanner = () => {
               ) : (
                 <button
                   onClick={handleButtonClick}
-                  className="bg-white text-black px-6 py-3 text-xl w-[150px] text-[16px]"
+                  className="bg-white text-black px-6 py-3 text-xl w-[150px] flex justify-center items-center"
                 >
-                  View More
+                  <span className="text-[16px]"> View More</span>
                 </button>
               )}
             </div>
