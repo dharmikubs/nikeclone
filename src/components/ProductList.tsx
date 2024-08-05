@@ -99,7 +99,7 @@
 // export default ProductList;
 import { wixClientServer } from "@/lib/wixClientServer";
 import { products } from "@wix/stores";
-import ClientProductCard from "@/components/ClientProductCard";
+import ProductCard from "@/components/ProductCard";
 import React from "react";
 
 const PRODUCT_PER_PAGE = 20;
@@ -131,7 +131,7 @@ const ProductList = async ({
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
       {res.items.map((product: products.Product) => (
-        <ClientProductCard key={product._id} product={product} />
+        <ProductCard key={product._id} product={product} />
       ))}
     </div>
   );

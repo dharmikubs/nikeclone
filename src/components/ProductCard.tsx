@@ -18,7 +18,7 @@ const ClientProductCard = ({ product }: ClientProductCardProps) => {
     setLoading(true);
     setTimeout(() => {
       router.push("/" + product.slug);
-    }, 500); // Adjust delay as needed
+    }, 100);
   };
 
   return (

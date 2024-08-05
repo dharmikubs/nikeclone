@@ -20,7 +20,7 @@ const HeroBanner = () => {
   const handleButtonClick = () => {
     setLoading(true);
     setTimeout(() => {
-      router.push("/list");
+      router.push("/shop");
     }, 100);
   };
 
