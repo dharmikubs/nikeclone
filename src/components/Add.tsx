@@ -50,7 +50,7 @@ const Add = ({
                   <span className="text-black font-semibold">
                     {stockNumber}
                   </span>{" "}
-                  left! Don't miss it
+                  left! {"Don't"} miss it
                 </div>
               )
             ) : (
