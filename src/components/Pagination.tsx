@@ -29,6 +29,7 @@ const Pagination = ({
           onClick={() => createPageUrl(currentPage - 1)}
         >
           {/* <Loader color={"#fff"} size={20} /> */}
+          {/* <Loader color={"#fff"} size={20} /> */}
           Prev
         </button>
         <button
