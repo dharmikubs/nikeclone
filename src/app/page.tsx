@@ -16,6 +16,7 @@ const HomePage = async () => {
             <ProductList
               categoryId={process.env.ALL_PRODUCT_CATEGORY_ID!}
               limit={4}
+              hidePagination={true}
             />
           </Suspense>
         </div>

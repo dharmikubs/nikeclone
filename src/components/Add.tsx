@@ -42,11 +42,17 @@ const Add = ({
               </button>
             </div>
             {stockNumber <= 5 ? (
-              <div className="text-gray-500 text-sm">
-                Only{" "}
-                <span className="text-black font-semibold">{stockNumber}</span>{" "}
-                left !{"Don't"} miss it
-              </div>
+              stockNumber < 1 ? (
+                <div className="text-red-500 text-sm">Out of stock</div>
+              ) : (
+                <div className="text-gray-500 text-sm">
+                  Only{" "}
+                  <span className="text-black font-semibold">
+                    {stockNumber}
+                  </span>{" "}
+                  left! Don't miss it
+                </div>
+              )
             ) : (
               ""
             )}

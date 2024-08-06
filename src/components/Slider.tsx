@@ -70,7 +70,7 @@ const HeroBanner = () => {
 
             <div className="absolute xl:bottom-24 bottom-10">
               {loading ? (
-                <div className="bg-white text-black md:px-6 md:py-3 p-2 text-xl w-[150px] min-w-[150px] h-[52px] min-h-[52px]">
+                <div className="bg-white text-black md:px-6 md:py-3 p-2 text-[16px] w-[150px] min-w-[150px] h-[52px] min-h-[52px]">
                   <Loader />
                 </div>
               ) : (

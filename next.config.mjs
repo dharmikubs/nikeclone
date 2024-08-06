@@ -26,6 +26,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.saymedia-content.com",
       },
+      {
+        protocol: "https",
+        hostname: "w7.pngwing.com",
+      },
     ],
   },
 };
