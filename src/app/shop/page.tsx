@@ -21,6 +21,9 @@ const ListPage = async ({ searchParams }: { searchParams: any }) => {
   return (
     <>
       <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
+        {/* <h1 className=" mt-12 font-bold capitalize text-center text-2xl xl:text-4xl">
+          Shop
+        </h1> */}
         <div className="bg-black flex justify-between h-72 rounded-md">
           {/* text  */}
           <div className="w-2/3 text-white flex flex-col items-start justify-center p-8">
@@ -44,7 +47,7 @@ const ListPage = async ({ searchParams }: { searchParams: any }) => {
         <Filter />
         {/* products  */}
         <h3 className="font-semibold text-xl mt-12">{cat?.collection?.name}</h3>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader size={25} color={"#101010"} />}>
           <ProductList
             categoryId={cat.collection?._id || default_cat_id}
             searchParams={searchParams}

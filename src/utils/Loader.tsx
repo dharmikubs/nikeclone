@@ -2,15 +2,15 @@
 import { useState, CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
-const Loader = () => {
+const Loader = ({ color, size }: { color: any; size: any }) => {
   let [loading, setLoading] = useState(true);
 
   return (
     <div className="sweet-loading flex justify-center items-start h-screen">
       <ClipLoader
-        color={`#101010`}
+        color={color}
         loading={loading}
-        size={25}
+        size={size}
         aria-label="Loading Spinner"
         data-testid="loader"
       />

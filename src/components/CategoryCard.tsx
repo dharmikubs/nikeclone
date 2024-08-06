@@ -29,7 +29,7 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
     <div className="flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mt-12 relative">
       {loading && (
         <div className="absolute h-full w-full -top-[8%] flex items-center justify-center bg-white bg-opacity-75 z-10 rounded-md">
-          <Loader />
+          <Loader size={25} color={"#101010"} />
         </div>
       )}
       <div

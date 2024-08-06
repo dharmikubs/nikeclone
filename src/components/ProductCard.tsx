@@ -29,7 +29,7 @@ const ClientProductCard = ({ product }: ClientProductCardProps) => {
       <div className="relative w-full h-80 group">
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-10 rounded-md">
-            <Loader />
+            <Loader size={25} color={"#101010"} />
           </div>
         )}
         <Image
