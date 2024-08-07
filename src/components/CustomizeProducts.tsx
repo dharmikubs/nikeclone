@@ -47,7 +47,7 @@ const CustomizeProducts = ({
     });
   };
 
-  console.log(selectedOptions);
+  // console.log(selectedOptions);
 
   return (
     <>
