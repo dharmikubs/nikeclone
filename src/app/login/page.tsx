@@ -49,7 +49,7 @@ const LoginPage = () => {
               {formTitle}
             </h3>
             <Image
-              src="https://w7.pngwing.com/pngs/198/618/png-transparent-nike-mag-nike-hyperdunk-shoe-sneakers-nike-physical-fitness-hand-basketballschuh.png"
+              src="/loginimg.png"
               alt=""
               width={768}
               layout="responsive"
@@ -147,7 +147,7 @@ const LoginPage = () => {
                   {mode === MODE.LOGIN && (
                     <div className="mt-4 text-gray-500 hover:text-black transition-all ease-in-out duration-300">
                       <span
-                        className="cursor-pointer "
+                        className="cursor-pointer"
                         onClick={() => setMode(MODE.RESET_PASSWORD)}
                       >{`Forgot Password ?`}</span>
                     </div>
@@ -155,7 +155,7 @@ const LoginPage = () => {
                   {mode === MODE.LOGIN && (
                     <div className="mt-2 text-gray-500 hover:text-black transition-all ease-in-out duration-300">
                       <span
-                        className="cursor-pointer "
+                        className="cursor-pointer"
                         onClick={() => setMode(MODE.REGISTER)}
                       >
                         {`Don't have an account ?`}
@@ -165,7 +165,7 @@ const LoginPage = () => {
                   {mode === MODE.REGISTER && (
                     <div className="mt-4 text-gray-500 hover:text-black transition-all ease-in-out duration-300">
                       <span
-                        className="cursor-pointer "
+                        className="cursor-pointer"
                         onClick={() => setMode(MODE.LOGIN)}
                       >
                         {`Have an account ?`}
@@ -175,7 +175,7 @@ const LoginPage = () => {
                   {mode === MODE.RESET_PASSWORD && (
                     <div className="mt-4 text-gray-500 hover:text-black transition-all ease-in-out duration-300">
                       <span
-                        className="cursor-pointer "
+                        className="cursor-pointer"
                         onClick={() => setMode(MODE.LOGIN)}
                       >{`Go back to login !`}</span>
                     </div>
